@@ -11,8 +11,6 @@
     "start": "webpack serve --port 3000 --mode development --open --hot",
     "build": "webpack --mode production --stats-children",
     "code-style:fix": "yarn eslint:fix && yarn prettier:write && yarn stylelint:fix",
-    "stylelint": "stylelint './src/**/*{.css,.scss}'",
-    "stylelint:fix": "stylelint './src/**/*{.css,.scss}' --fix",
     "eslint": "eslint --ext .jsx,.js,.ts,.tsx src/",
     "eslint:fix": "eslint --ext .jsx,.js,.ts,.tsx --fix src/",
     "prettier:write": "prettier --write src/",
@@ -34,9 +32,6 @@
     "src/**/*.(jsx|js|ts|tsx)": [
       "eslint --fix",
       "prettier --write"
-    ],
-    "src/**/*.(css|scss)": [
-      "stylelint --fix"
     ]
   },
   "browserslist": {
@@ -70,7 +65,6 @@
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "copy-webpack-plugin": "^9.0.0",
-    "css-loader": "^5.2.6",
     "eslint": "^7.28.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
@@ -85,22 +79,7 @@
     "html-webpack-plugin": "^5.3.1",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
-    "mini-css-extract-plugin": "^1.6.0",
-    "node-sass": "^6.0.0",
-    "postcss": "^8.3.1",
-    "postcss-loader": "^6.0.0",
-    "postcss-normalize": "^10.0.0",
-    "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.1",
-    "sass-loader": "^12.0.0",
-    "style-loader": "^2.0.0",
-    "stylelint": "^13.13.1",
-    "stylelint-config-prettier": "^8.0.2",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^22.0.0",
-    "stylelint-order": "^4.1.0",
-    "stylelint-prettier": "^1.2.0",
-    "stylelint-scss": "^3.19.0",
     "typescript": "^4.3.2",
     "webpack": "^5.38.1",
     "webpack-bundle-analyzer": "^4.4.2",

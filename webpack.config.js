@@ -1,7 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -15,10 +13,7 @@ module.exports = function (env, argv) {
     },
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
-      alias: {
-        '@ui': path.resolve(__dirname, 'src/ui/'),
-        '@img': path.resolve(__dirname, 'src/img/'),
-      },
+      alias: {},
     },
     output: {
       path: path.join(__dirname, '/dist'),

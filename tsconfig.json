@@ -17,15 +17,7 @@
     "jsx": "react",
     "allowJs": true,
     "baseUrl": ".",
-    "paths": {
-      "components/*": [
-        "components/*"
-      ],
-      "@ui/*": ["src/ui/*"],
-      "@ui": ["src/ui/"],
-      "@img/*": ["src/img/*"],
-      "@img": ["src/img/"],
-    },
+    "paths": {},
     "allowUnreachableCode": false,
     "allowUnusedLabels": false
   }
