@@ -6,16 +6,11 @@ interface EmbeddedBlockConfig {
 }
 
 interface InitProps extends EmbeddedBlockConfig{
-    name: string;
     stylePaths: string[];
     jsPaths: string[];
 }
 
-(window as any).initEmbeddedBlock = ({name, rootElementId, assetsRootUrl, stylePaths, jsPaths}: InitProps): void => {
-    if (!(window as any).embedded_blocks) {
-        (window as any).embedded_blocks = {}
-    }
-    (window as any).embedded_blocks[name] = {rootElementId, assetsRootUrl};
+const initEmbeddedBlock = ({rootElementId, assetsRootUrl, stylePaths, jsPaths}: InitProps): void => {
     const head = document.head || document.getElementsByTagName('head')[0];
 
     stylePaths.forEach((stylePath) => {
@@ -30,8 +25,18 @@ interface InitProps extends EmbeddedBlockConfig{
         js.src = `${assetsRootUrl}/${jsPath}`;
         js.defer = true;
         js.async = true;
-        js.type = 'text/javascript';
+        js.type = 'application/javascript';
         js.lang = 'JavaScript';
+        js.setAttribute('data-root-element-id', rootElementId);
+        js.setAttribute('data-assets-root-url', assetsRootUrl);
         head.append(js);
     })
 }
+
+(function a() {
+    ((window as any).embeddedBlocksConfig as InitProps[]).forEach((embeddedProps) => {
+        initEmbeddedBlock(embeddedProps);
+    })
+    // const {currentScript} = document;
+    // console.log('config', JSON.parse(`${currentScript?.getAttribute('data-config')}`));
+})();
